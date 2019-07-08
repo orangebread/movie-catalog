@@ -29,7 +29,6 @@ const MoviesList = () => {
 	}
 
 	const renderList = () => {
-		console.log('render list', movies);
 		return movies.map(movie => {
 			return (
 				<div className="item" key={movie.id}>
