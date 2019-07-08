@@ -3,50 +3,42 @@ import { reducer as formReducer } from 'redux-form';
 import _ from 'lodash';
 
 import {
-	SIGN_IN,
-	SIGN_OUT,
-	CREATE_STREAM,
-	DELETE_STREAM,
-	EDIT_STREAM,
-	FETCH_STREAM,
-	FETCH_STREAMS
+	ADD_MOVIE,
+	DELETE_MOVIE,
+	EDIT_MOVIE,
+	FETCH_MOVIE,
+	FETCH_MOVIES
 } from "./types";
 
-const INITIAL_STATE = {
-	isSignedIn: null,
-	userId: null
-};
-
-const isSignedIn = (state = INITIAL_STATE, action) => {
-	switch(action.type) {
-		case SIGN_IN:
-			return { ...state, isSignedIn: true, userId: action.payload };
-		case SIGN_OUT:
-			return { ...state, isSignedIn: false, userId: null };
+const moviesReducer = (state = [], action) => {
+	switch (action.type) {
+		case FETCH_MOVIES:
+			return action.payload.movies;
+		case ADD_MOVIE:
+			return [...state, action.payload];
+		case EDIT_MOVIE:
+			return [...state, action.payload];
+		case DELETE_MOVIE:
+			return state.filter(obj => {
+				return obj.id == action.payload;
+			});
+			
 		default:
 			return state;
 	}
 }
 
-const streamReducer = (state = {}, action) => {
+const movieReducer = (state = null, action) => {
 	switch (action.type) {
-		case FETCH_STREAMS:
-			return { ...state, ..._.mapKeys(action.payload, 'id') };
-		case FETCH_STREAM:
-			return { ...state, [action.payload.id]: action.payload };
-		case CREATE_STREAM:
-			return { ...state, [action.payload.id]: action.payload };
-		case EDIT_STREAM:
-			return { ...state, [action.payload.id]: action.payload };
-		case DELETE_STREAM:
-			return _.omit(state, action.payload);
+		case FETCH_MOVIE:
+			return action.payload.movie;
 		default:
 			return state;
 	}
 }
 
 export default combineReducers({
-	auth: isSignedIn,
 	form: formReducer,
-	streams: streamReducer
+	movies: moviesReducer,
+	movie: movieReducer
 });

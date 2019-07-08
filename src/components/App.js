@@ -1,11 +1,10 @@
 import React from 'react';
 import { Router, Route, Switch } from "react-router-dom";
-import StreamCreate from './Streams/StreamCreate';
-import StreamEdit from './Streams/StreamEdit';
-import StreamDelete from './Streams/StreamDelete';
-import StreamList from './Streams/StreamList';
-import StreamShow from './Streams/StreamShow';
-import UserList from './Users/UserList';
+import MoviesAdd from './Movies/MoviesAdd';
+import MoviesEdit from './Movies/MoviesEdit';
+import MoviesDelete from './Movies/MoviesDelete';
+import MoviesList from './Movies/MoviesList';
+import MovieShow from './Movies/MoviesShow';
 import Header from './Header';
 import history from '../history';
 
@@ -16,12 +15,11 @@ const App = () => {
 				<div>
 					<Header />
 					<Switch>
-						<Route path="/" exact component={StreamList} />
-						<Route path="/streams/new" exact component={StreamCreate} />
-						<Route path="/streams/edit/:id" exact component={StreamEdit} />
-						<Route path="/streams/delete/:id" exact component={StreamDelete} />
-						<Route path="/streams/:id" exact component={StreamShow} />
-						<Route path="/users" exact component={UserList} />
+						<Route path="/" exact component={MoviesList} />
+						<Route path="/movies/add" exact component={MoviesAdd} />
+						<Route path="/movies/edit/:id" exact component={MoviesEdit} />
+						<Route path="/movies/delete/:id" exact component={MoviesDelete} />
+						<Route path="/movies/:id" exact component={MovieShow} />
 					</Switch>
 				</div>
 			</Router>
