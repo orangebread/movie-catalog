@@ -26,7 +26,7 @@ const MoviesDelete = props => {
 		if (!movie) {
 			return 'Are you sure you want to delete this movie?'
 		}
-		return `Are you sure you want to movie the stream with title: ${movie.title}`;
+		return `Are you sure you want to delete the movie with title: ${movie.title}`;
 	}
 
 	return (
