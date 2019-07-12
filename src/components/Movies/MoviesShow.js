@@ -1,6 +1,5 @@
-import _ from 'lodash';
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch, useStore } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { fetchMovie } from "../../actions";
 
