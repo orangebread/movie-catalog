@@ -4,7 +4,7 @@ A simple movie catalog app built with React and NodeJS back end.
 
 Viewable demo here: https://gracious-booth-ec7685.netlify.com/
 
-## Client (/src)
+## Client (/)
 
 ### `npm install` 
 
