@@ -1,6 +1,6 @@
 ## Getting Started
 
-A simple movie catalog app built with React and NodeJS back end.
+A simple movie catalog app built with React (Redux and hooks) and NodeJS back end.
 
 Viewable demo here: https://gracious-booth-ec7685.netlify.com/
 
